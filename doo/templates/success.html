@@ -1,0 +1,21 @@
+{% extends 'tem.html' %}
+{% load static %}
+
+
+{% block con %}
+<body style="background-color: darkblue;">
+    
+</body>
+<div id="box" class="m-5 p-3 w-50 bg-info rounded" style="transform: translate(10%, 2%);">
+    {% if Err %}
+        <h1> {{Err}} </h1>
+    {% else %}
+    <img id="succes-icon" src="{% static 'images/check.png' %}">
+    <h4>transfer successfully :  {{tt.name}} </h4>
+    <p>The amount of {{ message }}$ has been successfully transferred to {{rec.name}} </p>
+    <p>your current balance is {{tt.cash}} </p>
+    <hr>
+    {% endif %}
+</div>
+
+{% endblock con %}

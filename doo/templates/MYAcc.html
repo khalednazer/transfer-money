@@ -1,0 +1,52 @@
+{% extends 'tem.html' %}
+{% load static %}
+
+
+{% block con %}
+<div class="bg-info w-75 rounded mb-5" style="transform: translate(15%, 20px);">
+    <h3> name : {{ow.name }}</h3>
+    <h3> phone : {{ow.phone }}</h3>
+    <h3> Current Balance : {{ow.cash }}$</h3>
+    <h3> timeCreated : {{ow.timeCreated }}</h3>
+</div>
+
+
+    <h2 class="text-warning">mony sent</h2>
+
+    <table class="table">
+        <tr>
+            <th>To  </th>
+            <th>amount  </th>
+            <th>Status  </th>
+            <th>time  </th>
+        </tr>
+        {% for x in userTr %}
+        <tr>
+            <td>{{ x.to }}</td>
+            <td>{{ x.amount }}$</td>
+            <td>{{ x.status }}</td>
+            <td>{{ x.time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    <h2 class="text-warning"> mony receved  </h2>
+    <table class="table">
+        <tr>
+            <th>From  </th>
+            <th>amount  </th>
+            <th>Status  </th>
+            <th>time  </th>
+        </tr>
+        {% for x in recev %}
+        <tr>
+            <td>{{ x.frome }}</td>
+            <td>{{ x.amount }}$</td>
+            <td>{{ x.status }}</td>
+            <td>{{ x.time }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock con %}

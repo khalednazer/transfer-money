@@ -1,0 +1,29 @@
+{% extends 'tem.html' %}
+{% load static %}
+
+
+{% block con %}
+
+<div>
+    <form action="" method="POST" class=" m-5 bg-info w-50 rounded p-5" >
+        <h1> your account </h1>
+        {% csrf_token %}
+        <input type="text" name="cre" id="" placeholder="credit.No">
+        <input type="password" name="passs" id="" placeholder="password">
+        <input type="submit" name="" id="" class="m-5">
+    </form>
+    {% for x in messages %}
+        <P>{{ x }}</P>
+    {% endfor %}
+
+
+    {% if dd %}
+        <h1> name : {{dd.name }}</h1>
+        <h1> phone : {{dd.phone }}</h1>
+        <h1> cash : {{dd.cash }}$</h1>
+        <h1> timeCreated : {{dd.timeCreated }}</h1>
+    {% endif %}
+
+</div>
+
+{% endblock con %}

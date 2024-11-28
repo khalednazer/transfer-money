@@ -1,0 +1,14 @@
+{% extends 'tem.html' %}
+{% load static %}
+
+
+{% block con %}
+    <div class="bg-info p-5 ">
+        <h2> welcome : {{name}} your accounte created successfly</h2>
+        <img src="{% static 'images/check.png' %}" alt="not founded" >
+        <div class="mt-3">
+
+            <a href="{% url 'main' %}" > <button class="col-5">back home</button></a>
+        </div>
+    </div>
+{% endblock con %}

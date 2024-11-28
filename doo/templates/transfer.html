@@ -1,0 +1,40 @@
+
+{% extends 'tem.html' %}
+{% load static %}
+
+
+{% block con %}
+<body class="bg-dark">
+    
+</body>
+    <div class="trans bg-info m-3 rounded p-2 w-75" >
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Card.No(your)</label>
+                <input type="text" name="card" id="">
+                <div id="emailHelp" class="form-text">We'll never share your Card with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Card.No(him)</label>
+                <input type="text" name="him" id="">
+                <div id="emailHelp" class="form-text">We'll never share your Card with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" id="">
+                <div id="emailHelp" class="form-text">We'll never share your Password with anyone else.</div>
+
+            </div>
+            <div class="mb-3 ">
+                <label class="form-check-label" for="">amount</label>
+                <input type="number" name="amount" class="" id="" min="1" max="10000">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {% for message in messages %}
+                <p> {{ message }} </p> 
+                    {% endfor %}
+    </div>
+
+{% endblock con %}

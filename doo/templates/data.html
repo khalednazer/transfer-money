@@ -1,0 +1,88 @@
+{% extends 'tem.html' %}
+{% load static %}
+
+
+{% block con %}
+    <h2>data </h2>
+    <button class="button bg-warning cut"> customers data </button>
+    <button class="button bg-warning tr"> transfers </button>
+    <input type="password" name="" id="" class="pas">
+    <table class="table one col-10" style="transform: translate(10px, 30px);">
+        <tr>
+            <th>name</th>
+            <th>phone</th>
+            <th class="">credit_No</th>
+            <th class="" >password</th>
+            <th>timeCreated</th>
+            <th>cash</th>
+        </tr>
+        <!-- w-100 d-flex  justify-content-between -->
+        {% for x in all %}
+            <tr>
+                <td class="col-2">{{x.name}}</td>
+                <td class="col-3">
+                    <a href="https://wa.me/{{x.phone}}?text=hello my girlfried"   target="_blank" class="whatsapp-icon" title="تواصل معنا عبر واتساب" >
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyhjClzQHPkWyg5LYObEyWqBl0K3pKp60UgA&s" width="30px" height="30px" alt="">
+                    </a>
+                    {{x.phone}}
+                </td>
+                <td class="col-2 border " style="opacity: .0009;">{{x.credit_No}} <button  class="bg-danger bb sss">WR</button></td>
+                <td class="col-2 border  " style="opacity: .0009;">{{x.crPass}} <button  class="bg-danger bb sss">WR</button></td>
+                <td class="col-2">{{x.timeCreated}}</td>
+                <td class="col-2">{{x.cash}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table class="table two col-10" style="display: none ; transform: translate(100px, 30px); ">
+        <tr>
+            <th class="col-2">sender </th>
+            <th class="col-2">recever</th>
+            <th class="col-2">amount</th>
+            <th class="col-3">time</th>
+            <th class="col-2">status</th>
+        </tr>
+        <!-- w-100 d-flex  justify-content-between -->
+        {% for x in tr %}
+            <tr>
+                <td >{{x.frome}}</td>
+                <td >{{x.to}}</td>
+                <td >{{x.amount}}$</td>
+                <td >{{x.time}}</td>
+                <td >{{x.status}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<script>
+    let pa = document.querySelectorAll('.bb') 
+    let trr = document.querySelectorAll('.sss') 
+    pa.forEach(function(e){
+        e.addEventListener('click', function(){
+            e.parentElement.style.opacity = '.4'
+        })
+    })
+
+    let cust = document.querySelector('.cut')
+    let tr = document.querySelector('.tr')
+    let Tone = document.querySelector('.one')
+    let Ttwo= document.querySelector('.two')
+    let pas= document.querySelector('.pas')
+    tr.onclick = function(){
+        Tone.style.display = 'none'
+        Ttwo.style.display = 'block'
+    }
+    cust.onclick=function(){
+        Ttwo.style.display='none'
+        Tone.style.display='block'
+    }
+    pas.oninput=function(){
+        if (pas.value == 'please'){
+            console.log ('sokkk')
+            trr.forEach(function(ww){
+                ww.parentElement.style.opacity = '.05'
+            })
+        }
+    }
+</script>
+{% endblock con %}

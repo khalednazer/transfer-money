@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>K-TR</title>
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #0056b3;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .hhed{
+            transform: translate(20%, 50%);
+            
+        }
+    </style>
+<body>
+    
+    {% load static %}
+    {% include 'hed.html' %}
+    {% block con %}
+    <h1 class="bg-info w-75 hhed rounded">  welcome to K&H-TR</h1>
+</header>
+<div class="container">
+    <p class="text-light"> Register now or make a transaction immediately </p>
+    <a href="{% url 'forms' %}" class="btn">Register now</a>
+    <a href="{% url 'trans' %}" class="btn"> transfer</a>
+    <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9s3tJCnnxSS4RlcYf6yDZXD8AdulSt9lvTg&s" class="rounded porder m-4" alt="">
+    </div>
+    <a href="https://wa.me/201159208426?text=hello my baby"   target="_blank" class="whatsapp-icon" title="تواصل معنا عبر واتساب" > whatsapp..</a>
+
+</div>
+
+    
+    {% endblock con %}
+</body>
+</html>
